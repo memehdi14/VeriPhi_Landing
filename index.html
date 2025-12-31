@@ -32,6 +32,20 @@
     </header>
 
     <main>
+                <section id="minimal-setup" style="margin-bottom:2rem;">
+                    <h2 class="section-title neon-glow" style="font-size:2.5rem;letter-spacing:0.08em;">
+                        <span class="setup-title-main">QUICK SYSTEM INIT</span>
+                        <span class="setup-title-sub" style="display:block;font-size:1.1rem;font-weight:400;color:var(--neon-green);margin-top:0.3em;letter-spacing:0.04em;">Deploy VeriPhi in 60 seconds</span>
+                    </h2>
+                    <div class="setup-card neon-card">
+                        <ol class="setup-list">
+                            <li><span class="setup-label">Backend:</span> <br><span class="setup-step">Go to <code>backend/</code>, run <code>npm install</code>, set your API keys in <code>.env</code>, then <code>npm start</code>.</span></li>
+                            <li><span class="setup-label">Extension:</span> <br><span class="setup-step">Open Chrome <code>chrome://extensions</code>, enable <b>Developer Mode</b>, <b>Load Unpacked</b>, select <code>extension/</code> folder.</span></li>
+                            <li><span class="setup-label">Landing Page:</span> <br><span class="setup-step">Go to <code>landing-page/</code>, run <code>npm install</code> and <code>npm run dev</code> to preview locally.</span></li>
+                        </ol>
+                        <p class="setup-note">For API key setup and extension/backend details, see the <a href="#api-key-setup">API Key Setup</a> section below.</p>
+                    </div>
+                </section>
         <section id="hero">
             <div class="hero-content">
                 <h1 class="glitch" data-text="PREDICT_HALLUCINATIONS">PREDICT_HALLUCINATIONS</h1>
@@ -124,15 +138,77 @@
             </div>
         </section>
 
+        <section id="api-key-setup" style="margin-bottom: 2rem;">
+            <h2 class="section-title">API_KEY_SETUP</h2>
+            <div class="install-guide">
+                <p>Some features require API keys for external services like <strong>Gemini Flash 2.5</strong> and <strong>Google AI Studio</strong>. To make setup easy for anyone, follow these steps:</p>
+                <ol>
+                    <li>
+                        <strong>Obtain your API keys:</strong><br>
+                        <ul>
+                            <li><b>Gemini Flash 2.5:</b> <a href="https://aistudio.google.com/app/apikey" target="_blank">Get your API key here</a>.</li>
+                            <li><b>Google AI Studio:</b> <a href="https://aistudio.google.com/" target="_blank">Generate your API key here</a>.</li>
+                        </ul>
+                    </li>
+                    <li>Create a file named <code>.env</code> in the <code>landing-page</code> directory.</li>
+                    <li>Add your API keys in this format:<br>
+                            <code>VITE_GEMINI_API_KEY=your_gemini_api_key_here</code><br>
+                            <code>VITE_GOOGLE_AI_API_KEY=your_google_ai_api_key_here</code>
+                    </li>
+                    <li>Never commit your <code>.env</code> file to version control.</li>
+                </ol>
+                <p style="font-size: 0.95em; color: #aaa;">The app will use <code>import.meta.env.VITE_GEMINI_API_KEY</code> and <code>import.meta.env.VITE_GOOGLE_AI_API_KEY</code> to access your keys securely.</p>
+            </div>
+                <h2 class="section-title">API_KEY_SETUP</h2>
+                <div class="install-guide">
+                    <p>Some features require API keys for external services like <strong>Gemini Flash 2.5</strong> and <strong>Google AI Studio</strong>. To get started, follow these steps:</p>
+                    <ol>
+                        <li>
+                            <strong>Obtain your API keys:</strong><br>
+                            <ul>
+                                <li><b>Gemini Flash 2.5:</b> <a href="https://aistudio.google.com/app/apikey" target="_blank">Get your API key here</a>.</li>
+                                <li><b>Google AI Studio:</b> <a href="https://aistudio.google.com/" target="_blank">Generate your API key here</a>.</li>
+                            </ul>
+                        </li>
+                        <li>Create a file named <code>.env</code> in the <code>landing-page</code> directory.</li>
+                        <li>Add your API keys in this format:<br>
+                            <code>VITE_GEMINI_API_KEY=your_gemini_api_key_here</code><br>
+                            <code>VITE_GOOGLE_AI_API_KEY=your_google_ai_api_key_here</code>
+                        </li>
+                        <li>Never commit your <code>.env</code> file to version control. (Add it to <code>.gitignore</code>.)</li>
+                    </ol>
+                    <p style="font-size: 0.95em; color: #aaa;">The app uses <code>import.meta.env.VITE_GEMINI_API_KEY</code> and <code>import.meta.env.VITE_GOOGLE_AI_API_KEY</code> to access your keys securely in code.</p>
+                    <hr style="margin: 1.5em 0; border: none; border-top: 1px solid #333;">
+                    <h3 style="margin-top:1em;">How the Extension Uses API Keys</h3>
+                    <ul>
+                      <li>The <b>backend server</b> (in <code>backend/</code>) uses your API keys to connect to Gemini and Google AI services.</li>
+                      <li>To use the extension, <b>you must set your API keys in a <code>.env</code> file in the <code>backend/</code> directory</b> as well:</li>
+                    </ul>
+                    <pre style="background:#181818;color:#00ff9d;padding:1em;border-radius:8px;overflow-x:auto;margin-bottom:1em;font-size:1em;">
+    GEMINI_API_KEY=your_gemini_api_key_here
+    GOOGLE_SEARCH_API_KEY=your_google_search_api_key_here
+    GOOGLE_SEARCH_CX=your_google_search_cx_here
+                    </pre>
+                    <ul>
+                      <li>Restart the backend server after updating your <code>.env</code> file.</li>
+                      <li>The Chrome extension communicates with the backend at <code>http://localhost:3000/</code> (by default).</li>
+                      <li><b>Never share your API keys publicly.</b></li>
+                    </ul>
+                    <p style="font-size: 0.95em; color: #aaa;">If you see connection errors in the extension, make sure your backend server is running and your API keys are set correctly.</p>
+                </div>
+        </section>
         <section id="install">
             <h2 class="section-title">DEPLOY_EXTENSION</h2>
             <div class="install-guide">
                 <p class="warning-text">
-                    <!-- Production: No dev warning -->
+                    <b>Note:</b> The extension requires the backend server to be running with valid API keys set in <code>backend/.env</code>.<br>
+                    If you see connection errors, make sure your backend is running and your API keys are correct.
                 </p>
                 <ol>
                     <li>Download the Source Code (Clone Repo).</li>
-                    <li>Open Chrome -> <code>chrome://extensions</code></li>
+                    <li>Set up your API keys in <code>backend/.env</code> (see <a href="#api-key-setup">API Key Setup</a> above).</li>
+                    <li>Start the backend server: <code>cd backend &amp;&amp; npm install &amp;&amp; npm start</code></li>
+                    <li>Open Chrome &rarr; <code>chrome://extensions</code></li>
                     <li>Enable <strong>Developer Mode</strong> (Top Right).</li>
                     <li>Click <strong>Load Unpacked</strong>.</li>
                     <li>Select the <code>extension/</code> folder.</li>

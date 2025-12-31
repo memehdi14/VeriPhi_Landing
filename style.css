@@ -1,3 +1,80 @@
+/* --- Neon Glow for Setup Title --- */
+.neon-glow {
+    color: var(--neon-green);
+    text-shadow:
+        0 0 8px var(--neon-green),
+        0 0 16px var(--neon-green),
+        0 0 2px #fff;
+    font-family: var(--font-mono);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.7em;
+}
+.setup-title-main {
+    font-size: 1.2em;
+    letter-spacing: 0.09em;
+    font-family: var(--font-mono);
+    color: var(--neon-green);
+    text-shadow: 0 0 12px var(--neon-green), 0 0 2px #fff;
+}
+.setup-title-sub {
+    font-family: var(--font-head);
+    color: var(--neon-green);
+    text-shadow: 0 0 8px var(--neon-green);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+/* --- Setup Card (Quick Setup Section) --- */
+.setup-card {
+    background: var(--card-bg);
+    border: 2px solid var(--neon-green);
+    border-radius: 18px;
+    box-shadow: 0 0 24px 2px var(--neon-green), 0 0 0 1.5px var(--neon-purple) inset;
+    padding: 2.2rem 2rem 1.5rem 2rem;
+    margin: 2rem auto 3rem auto;
+    max-width: 600px;
+    color: var(--text-color);
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-mono);
+    font-size: 1.13rem;
+    letter-spacing: 0.01em;
+    transition: box-shadow 0.2s;
+}
+.setup-card:hover {
+    box-shadow: 0 0 36px 4px var(--neon-green), 0 0 0 2px var(--neon-purple) inset;
+}
+.setup-list {
+    list-style: decimal inside;
+    margin: 0 0 1.2rem 0;
+    padding: 0;
+}
+.setup-list li {
+    margin-bottom: 1.1em;
+    padding-left: 0.2em;
+    line-height: 1.7;
+}
+.setup-label {
+    color: var(--neon-green);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 1.08em;
+    text-shadow: 0 0 6px var(--neon-green);
+}
+.setup-step {
+    color: #e0e0e0;
+    font-weight: 400;
+    font-size: 0.98em;
+}
+.setup-note {
+    color: #a0ffe0;
+    font-size: 0.98em;
+    margin-top: 0.5em;
+    text-align: left;
+    font-family: var(--font-mono);
+    letter-spacing: 0.01em;
+}
 :root {
     --neon-green: #00ff9d;
     --neon-purple: #bd00ff;
